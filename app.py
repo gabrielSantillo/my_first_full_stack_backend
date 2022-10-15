@@ -70,7 +70,8 @@ def delete_candy():
 # if statement to check if the production_mode variable is true, if yes, run in production mode, if not, run in testing mode
 if (production_mode):
     print("Running in Production Mode")
-    app.run(debug=True)
+    import bjoern  # type: ignore
+    bjoern.run(app, "0.0.0.0", 5134)
 else:
     from flask_cors import CORS
     CORS(app)

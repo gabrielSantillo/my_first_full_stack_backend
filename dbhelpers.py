@@ -2,7 +2,6 @@
 # where I am treating every error that this process may have to no leave
 # the the error crashs the entire application
 
-from tkinter import EXCEPTION
 import dbcreds
 import mariadb
 
@@ -15,7 +14,7 @@ def connect_db():
         return cursor
     except mariadb.OperationalError as error:
         print("Operational ERROR:", error)
-    except EXCEPTION as error:
+    except Exception as error:
         print("Unknown ERROR:", error)
 
 
